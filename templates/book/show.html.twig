@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %} {% block title %}Book{% endblock %} {% block body
+%}
+<h1>{{ book.title }}</h1>
+
+<table class="table">
+  <tbody>{% if is_granted('ROLE_ADMIN') %}
+    <tr>
+      <th>Id</th>
+      <td>{{ book.id }}</td>
+    </tr>{% endif %}
+    <tr>
+      <th>Titre</th>
+      <td>{{ book.title }}</td>
+    </tr>
+    <tr>
+      <th>Genre</th>
+      <td>{{ book.genre }}</td>
+    </tr>
+    <tr>
+      <th>Publié le :</th>
+      <td>{{ book.publishedAt ? book.publishedAt|date('Y-m-d') : '' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="{{ path('app_book_index') }}">Retour</a>
+{% if is_granted('ROLE_ADMIN') %}
+<a href="{{ path('app_book_edit', { id: book.id }) }}">edit</a>
+{{ include("book/_delete_form.html.twig") }}{% endif %} {% endblock %}

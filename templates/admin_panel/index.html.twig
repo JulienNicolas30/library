@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour Admin{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<ul><a href="{{ path('app_authors_index') }}">Gestion des Auteurs</a></ul>
+<ul><a href="{{ path('app_book_index') }}">Gestion des Livres</a></ul>
+<ul><a href="{{ path('user_index') }}">Gestion des utilisateurs</a></ul>
+<ul><a href="{{ path('app_borrow_index')}}">Affichage des locations</a></ul> 
+</div>
+{% endblock %}
